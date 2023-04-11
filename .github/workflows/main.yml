@@ -104,7 +104,7 @@ jobs:
       run: 
         echo "$SUMMARY" >> $GITHUB_STEP_SUMMARY
       
-    # If this is a PR post the changes
+    # If this is a PR post the changes.
     - name: Push Terraform Output to PR
       if: github.ref != 'refs/heads/main'
       uses: actions/github-script@v6
