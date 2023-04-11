@@ -15,7 +15,7 @@ spec:
         app: webserver-deploy
     spec:
       containers:
-      - image: eakkaya64/web-server
+      - image: oguzhanaydogan/phonebook-web
         name: webserver
         ports:
           - containerPort: 80
