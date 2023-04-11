@@ -10,8 +10,8 @@ terraform {
     }
   }
 
-    
-  
+
+
   backend "azurerm" {
 
     resource_group_name  = "backend"
@@ -22,9 +22,9 @@ terraform {
 }
 
 # az network nsg rule create --name testrule --nsg-name acceptanceTestSecurityGroup1 --priority 300 --resource-group rg-test --access Allow --destination-port-ranges 30003 --direction Inbound --protocol Tcp
-  provider "azurerm" {
-  features{}
-  }
+provider "azurerm" {
+  features {}
+}
 
 resource "azurerm_resource_group" "rg" {
   name     = var.name
