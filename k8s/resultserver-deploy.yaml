@@ -15,7 +15,7 @@ spec:
         app: resultserver-deploy
     spec:
       containers:
-      - image: aishasemerci/resultserver 
+      - image: eakkaya64/result-server 
         name: resultserver
         ports:
           - containerPort: 80
