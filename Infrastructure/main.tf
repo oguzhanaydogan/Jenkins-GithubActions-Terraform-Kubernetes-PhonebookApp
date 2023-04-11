@@ -4,10 +4,10 @@ terraform {
       source  = "hashicorp/azurerm"
       version = "3.51.0"
     }
-    # github = {
-    #   source  = "integrations/github"
-    #   version = "~> 5.0"
-    # }
+    github = {
+      source  = "integrations/github"
+      version = "~> 5.0"
+    }
   }
 
     
@@ -92,26 +92,26 @@ resource "azurerm_lb_rule" "rule2" {
   backend_address_pool_ids = [data.azurerm_lb_backend_address_pool.backAP.id]
 }
 
-# resource "github_actions_environment_variable" "nodergname_var" {
-#   repository    = "testrepo"
-#   variable_name = "NODERG"
-#   value         = azurerm_kubernetes_cluster.aks.node_resource_group
-#   environment   = var.environment
-# }
+resource "github_actions_environment_variable" "nodergname_var" {
+  repository    = "phonebook_kubernetes"
+  variable_name = "NODERG"
+  value         = azurerm_kubernetes_cluster.aks.node_resource_group
+  environment   = var.environment
+}
 
-# resource "github_actions_environment_variable" "aksrgname_var" {
-#   repository    = "testrepo"
-#   variable_name = "AKSRG_NAME"
-#   value         = azurerm_resource_group.rg.name
-#   environment   = var.environment
-# }
+resource "github_actions_environment_variable" "aksrgname_var" {
+  repository    = "phonebook_kubernetes"
+  variable_name = "AKSRG_NAME"
+  value         = azurerm_resource_group.rg.name
+  environment   = var.environment
+}
 
-# resource "github_actions_environment_variable" "aksname_var" {
-#   repository    = "testrepo"
-#   variable_name = "AKS_NAME"
-#   value         = azurerm_kubernetes_cluster.aks.name
-#   environment   = var.environment
-# }
+resource "github_actions_environment_variable" "aksname_var" {
+  repository    = "phonebook_kubernetes"
+  variable_name = "AKS_NAME"
+  value         = azurerm_kubernetes_cluster.aks.name
+  environment   = var.environment
+}
 
 ####################
 ### MYSQL SERVER ###
