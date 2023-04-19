@@ -24,14 +24,3 @@ spec:
               name: app-config
           - secretRef:
               name: app-secret
-
-
-
-# - name: MYSQL_DATABASE_HOST
-#   value: mysql-service  #dikkat burada mysql'in service adini giriyoruz!
-# - name: MYSQL_DATABASE
-#   value: "phonebook"
-# - name: MYSQL_USER
-#   value: "ayse"
-# - name: MYSQL_PASSWORD 
-#   value: "ayse1234" 

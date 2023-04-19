@@ -4,10 +4,6 @@ terraform {
       source  = "hashicorp/azurerm"
       version = "3.51.0"
     }
-    github = {
-      source  = "integrations/github"
-      version = "~> 5.0"
-    }
   }
 
 
@@ -17,10 +13,16 @@ terraform {
     storage_account_name = "oaydogan"
     container_name       = "terraformstate"
     key                  = "terraform.tfstate"
+    use_msi = true
+    subscription_id = "67882e92-6412-4fc5-b9ca-1030aa09d729"
+    tenant_id = "1a93b615-8d62-418a-ac28-22501cf1f978"
   }
 }
 provider "azurerm" {
   features {}
+    use_msi = true
+    subscription_id = "67882e92-6412-4fc5-b9ca-1030aa09d729"
+    tenant_id = "1a93b615-8d62-418a-ac28-22501cf1f978"
 }
 
 resource "azurerm_resource_group" "rg" {
@@ -87,27 +89,6 @@ resource "azurerm_lb_rule" "rule2" {
   probe_id                       = azurerm_lb_probe.probe3002.id
 
   backend_address_pool_ids = [data.azurerm_lb_backend_address_pool.backAP.id]
-}
-
-resource "github_actions_environment_variable" "nodergname_var" {
-  repository    = "phonebook_kubernetes"
-  variable_name = "NODERG"
-  value         = azurerm_kubernetes_cluster.aks.node_resource_group
-  environment   = var.environment
-}
-
-resource "github_actions_environment_variable" "aksrgname_var" {
-  repository    = "phonebook_kubernetes"
-  variable_name = "AKSRG_NAME"
-  value         = azurerm_resource_group.rg.name
-  environment   = var.environment
-}
-
-resource "github_actions_environment_variable" "aksname_var" {
-  repository    = "phonebook_kubernetes"
-  variable_name = "AKS_NAME"
-  value         = azurerm_kubernetes_cluster.aks.name
-  environment   = var.environment
 }
 
 ####################
