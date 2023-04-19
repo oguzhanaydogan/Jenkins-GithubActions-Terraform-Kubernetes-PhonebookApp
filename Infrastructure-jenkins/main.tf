@@ -9,20 +9,20 @@ terraform {
 
 
   backend "azurerm" {
-    resource_group_name  = "ssh-key"
-    storage_account_name = "oaydogan"
-    container_name       = "terraformstate"
+    resource_group_name  = "<resource-group-name>"
+    storage_account_name = "<storage-account-name>"
+    container_name       = "<container-name>"
     key                  = "terraform.tfstate"
-    use_msi = true
-    subscription_id = "67882e92-6412-4fc5-b9ca-1030aa09d729"
-    tenant_id = "1a93b615-8d62-418a-ac28-22501cf1f978"
   }
-}
+    use_msi = true
+    subscription_id = "<subscription-id>"
+    tenant_id = "<tenant_id>"
+  }
 provider "azurerm" {
   features {}
     use_msi = true
-    subscription_id = "67882e92-6412-4fc5-b9ca-1030aa09d729"
-    tenant_id = "1a93b615-8d62-418a-ac28-22501cf1f978"
+    subscription_id = "<subscription-id>"
+    tenant_id = "<tenant_id>"
 }
 
 resource "azurerm_resource_group" "rg" {
