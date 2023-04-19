@@ -8,7 +8,7 @@ pipeline {
         stage('Create Infrastructure for the App') {
             steps {
                 sh 'az login --identity'
-                dir('/var/lib/jenkins/workspace/PHONEBOOK-KUBERNETES/infrastructure-jenkins'){
+                dir('/var/lib/jenkins/workspace/PHONEBOOK-KUBERNETES/Infrastructure-jenkins'){
                     echo 'Creating Infrastructure for the App on AZURE Cloud'
                     sh 'terraform init'
                     sh 'terraform apply --auto-approve'
@@ -18,7 +18,7 @@ pipeline {
 
         stage('Connect to AKS and set NSG permissions') {
             steps {
-                dir('/var/lib/jenkins/workspace/PHONEBOOK-KUBERNETES/infrastructure-jenkins'){
+                dir('/var/lib/jenkins/workspace/PHONEBOOK-KUBERNETES/Infrastructure-jenkins'){
                     echo 'Injecting Terraform Output into connection command'
                     script {
                         env.AKS_NAME = sh(script: 'terraform output -raw AKS_NAME', returnStdout:true).trim()
@@ -62,7 +62,7 @@ pipeline {
                 timeout(time:5, unit:'DAYS'){
                     input message:'Do you want to terminate?'
                 }
-                dir('/var/lib/jenkins/workspace/PHONEBOOK-KUBERNETES/infrastructure-jenkins'){
+                dir('/var/lib/jenkins/workspace/PHONEBOOK-KUBERNETES/Infrastructure-jenkins'){
                     sh """
                     terraform destroy --auto-approve
                     """
