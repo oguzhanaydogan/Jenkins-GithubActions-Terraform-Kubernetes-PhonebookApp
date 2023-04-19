@@ -45,10 +45,10 @@ pipeline {
                 }
                 sh 'echo ${MYSQL_HOST}'
                 sh 'echo ${MYSQL_PASSWORD}'
-                sh 'envsubst < app-config-template > ./k8s/app-config.yaml'
-                sh 'cat ./k8s/app-config.yaml'
-                sh 'envsubst < app-secret-template > ./k8s/app-secret.yaml'
-                sh 'cat ./k8s/app-secret.yaml'
+                sh 'envsubst < ../app-config-template > ../k8s/app-config.yaml'
+                sh 'cat ../k8s/app-config.yaml'
+                sh 'envsubst < ../app-secret-template > ../k8s/app-secret.yaml'
+                sh 'cat ../k8s/app-secret.yaml'
               }
             }
         }
