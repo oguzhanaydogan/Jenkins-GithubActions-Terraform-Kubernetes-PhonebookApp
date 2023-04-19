@@ -37,6 +37,7 @@ pipeline {
         }
         stage('Substitute mysql values') {
             steps {
+              dir('/var/lib/jenkins/workspace/PHONEBOOK-KUBERNETES/Infrastructure-jenkins'){
                 echo 'Substitute mysql values'
                 script {
                     env.MYSQL_HOST = sh(script: 'terraform output -raw MYSQL_HOST', returnStdout:true).trim()
@@ -48,6 +49,7 @@ pipeline {
                 sh 'cat ./k8s/app-config.yaml'
                 sh 'envsubst < app-secret-template > ./k8s/app-secret.yaml'
                 sh 'cat ./k8s/app-secret.yaml'
+              }
             }
         }
         stage('Deploy K8s files') {
