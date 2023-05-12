@@ -15,7 +15,7 @@ spec:
         app: resultserver-deploy
     spec:
       containers:
-      - image: oguzhanaydogan/phonebook-result
+      - image: eakkaya64/result-server
         name: resultserver
         ports:
           - containerPort: 80
