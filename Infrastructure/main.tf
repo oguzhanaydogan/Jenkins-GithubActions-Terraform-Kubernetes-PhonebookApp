@@ -94,26 +94,26 @@ resource "azurerm_lb_rule" "rule2" {
   backend_address_pool_ids = [data.azurerm_lb_backend_address_pool.backAP.id]
 }
 
-# resource "github_actions_environment_variable" "nodergname_var" {
-#   repository    = "phonebook_kubernetes"
-#   variable_name = "NODERG"
-#   value         = azurerm_kubernetes_cluster.aks.node_resource_group
-#   environment   = var.environment
-# }
+resource "github_actions_environment_variable" "nodergname_var" {
+  repository    = "phonebook_kubernetes"
+  variable_name = "NODERG"
+  value         = azurerm_kubernetes_cluster.aks.node_resource_group
+  environment   = var.environment
+}
 
-# resource "github_actions_environment_variable" "aksrgname_var" {
-#   repository    = "phonebook_kubernetes"
-#   variable_name = "AKSRG_NAME"
-#   value         = azurerm_resource_group.rg.name
-#   environment   = var.environment
-# }
+resource "github_actions_environment_variable" "aksrgname_var" {
+  repository    = "phonebook_kubernetes"
+  variable_name = "AKSRG_NAME"
+  value         = azurerm_resource_group.rg.name
+  environment   = var.environment
+}
 
-# resource "github_actions_environment_variable" "aksname_var" {
-#   repository    = "phonebook_kubernetes"
-#   variable_name = "AKS_NAME"
-#   value         = azurerm_kubernetes_cluster.aks.name
-#   environment   = var.environment
-# }
+resource "github_actions_environment_variable" "aksname_var" {
+  repository    = "phonebook_kubernetes"
+  variable_name = "AKS_NAME"
+  value         = azurerm_kubernetes_cluster.aks.name
+  environment   = var.environment
+}
 
 ####################
 ### MYSQL SERVER ###
