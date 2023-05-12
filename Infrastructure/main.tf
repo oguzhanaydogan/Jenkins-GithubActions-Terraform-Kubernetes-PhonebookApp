@@ -13,9 +13,9 @@ terraform {
 
 
   backend "azurerm" {
-    resource_group_name  = "<resource-group-name>"
-    storage_account_name = "<storage-account-name>"
-    container_name       = "<container-name>"
+    resource_group_name  = "ssh-key"
+    storage_account_name = "oaydogan"
+    container_name       = "terraformstate"
     key                  = "terraform.tfstate"
   }
 }
