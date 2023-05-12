@@ -7,7 +7,7 @@ variable "location" {
 }
 
 variable "environment" {
-  default = "production"
+  default     = "production"
   description = "production etc."
 }
 
@@ -27,5 +27,5 @@ variable "db_username" {
 variable "db_password" {
   description = "Should match with the k8s yaml files"
   default     = "Password1234"
-  #app.secret line 7
+  # app.secret line 7
 }
