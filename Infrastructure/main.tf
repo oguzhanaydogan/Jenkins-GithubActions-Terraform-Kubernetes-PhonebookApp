@@ -28,6 +28,11 @@ resource "azurerm_resource_group" "rg" {
   location = var.location
 }
 
+resource "azurerm_resource_group" "rg" {
+  name     = "${var.prefix}-rg1"
+  location = var.location
+}
+
 resource "azurerm_kubernetes_cluster" "aks" {
   name                = "${var.prefix}-aks"
   location            = azurerm_resource_group.rg.location
